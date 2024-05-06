@@ -56,14 +56,11 @@ namespace BusinessLayer
             }
             catch (DbUpdateException ex)
             {
-                // Check if there is an inner exception
                 if (ex.InnerException != null)
                 {
-                    // Log or handle the inner exception
                     Console.WriteLine("Inner Exception Message: " + ex.InnerException.Message);
                 }
 
-                // Rethrow the original exception to preserve the stack trace
                 throw;
             }
 

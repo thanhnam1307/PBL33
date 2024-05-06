@@ -23,13 +23,12 @@ namespace DataLayer
     
         public string ProductID { get; set; }
         public string ProductName { get; set; }
-        public string AliasName { get; set; }
         public Nullable<double> Price { get; set; }
-        public string ProductImage { get; set; }
         public Nullable<System.DateTime> AddedDate { get; set; }
         public Nullable<System.DateTime> DeleteDate { get; set; }
         public string Description { get; set; }
         public string CategoryID { get; set; }
+        public byte[] ImageProduct { get; set; }
     
         public virtual tb_Category tb_Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

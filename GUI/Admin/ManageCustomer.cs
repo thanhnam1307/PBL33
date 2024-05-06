@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class MainViewAdmin : Form
+    public partial class ManageCustomer : Form
     {
-        public MainViewAdmin()
+        public ManageCustomer()
         {
             InitializeComponent();
+        }
+
+        private void ManageCustomer_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+
         }
     }
 }

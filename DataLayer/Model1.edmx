@@ -115,13 +115,12 @@
           </Key>
           <Property Name="ProductID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-          <Property Name="AliasName" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="float" />
-          <Property Name="ProductImage" Type="text" />
           <Property Name="AddedDate" Type="date" />
           <Property Name="DeleteDate" Type="date" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" />
           <Property Name="CategoryID" Type="nchar" MaxLength="20" />
+          <Property Name="ImageProduct" Type="image" />
         </EntityType>
         <EntityType Name="tb_Rating">
           <Key>
@@ -474,13 +473,12 @@
           </Key>
           <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AliasName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
-          <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AddedDate" Type="DateTime" Precision="0" />
           <Property Name="DeleteDate" Type="DateTime" Precision="0" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CategoryID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="ImageProduct" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="tb_Category" Relationship="Self.FK_Product_Category" FromRole="tb_Product" ToRole="tb_Category" />
           <NavigationProperty Name="tb_Invoice_Detail" Relationship="Self.FK_Invoice_Detail_Product" FromRole="tb_Product" ToRole="tb_Invoice_Detail" />
           <NavigationProperty Name="tb_Rating" Relationship="Self.FK_tb_Rating_tb_Product" FromRole="tb_Product" ToRole="tb_Rating" />
@@ -829,13 +827,12 @@
               <MappingFragment StoreEntitySet="tb_Product">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="AliasName" ColumnName="AliasName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
                 <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
                 <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
