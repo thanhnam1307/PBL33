@@ -31,6 +31,7 @@ namespace DataLayer
         public virtual DbSet<tb_DiningTable> tb_DiningTable { get; set; }
         public virtual DbSet<tb_Employee> tb_Employee { get; set; }
         public virtual DbSet<tb_EmpType> tb_EmpType { get; set; }
+        public virtual DbSet<tb_Ingredient> tb_Ingredient { get; set; }
         public virtual DbSet<tb_Invoice> tb_Invoice { get; set; }
         public virtual DbSet<tb_Invoice_Detail> tb_Invoice_Detail { get; set; }
         public virtual DbSet<tb_OverTime> tb_OverTime { get; set; }

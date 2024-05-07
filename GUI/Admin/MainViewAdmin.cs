@@ -163,6 +163,7 @@ namespace GUI
         {
             employee = null;
         }
+        private ManageCustomer previousCustomer;
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -178,12 +179,16 @@ namespace GUI
             {
                 customer.Activate();
             }
-
+            previousCustomer = customer;
         }
 
         private void Customer_FormClosed(object sender, FormClosedEventArgs e)
         {
-            customer = null;
+            if (previousCustomer != null)
+            {
+                previousCustomer.Show();
+                previousCustomer = null; // Xóa tham chiếu tới form cũ
+            }
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
@@ -205,7 +210,6 @@ namespace GUI
         {
             statistic = null;
         }
-
         private void btnNguyenLieu_Click(object sender, EventArgs e)
         {
             if (ingredient == null)

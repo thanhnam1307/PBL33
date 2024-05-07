@@ -127,6 +127,7 @@
             this.cbbTheLoai.Name = "cbbTheLoai";
             this.cbbTheLoai.Size = new System.Drawing.Size(187, 28);
             this.cbbTheLoai.TabIndex = 9;
+            this.cbbTheLoai.SelectedIndexChanged += new System.EventHandler(this.cbbTheLoai_SelectedIndexChanged);
             // 
             // btnInsert
             // 

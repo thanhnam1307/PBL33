@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PBL3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="pbl3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -65,6 +65,16 @@
           </Key>
           <Property Name="EmpTypeID" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="EmpTypeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientID" />
+          </Key>
+          <Property Name="IngredientID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="IngredientName" Type="nvarchar" MaxLength="40" />
+          <Property Name="Number" Type="int" />
+          <Property Name="ProductID" Type="nchar" MaxLength="10" />
+          <Property Name="Note" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="tb_Invoice">
           <Key>
@@ -241,6 +251,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tb_Ingredient_tb_Product">
+          <End Role="tb_Product" Type="Self.tb_Product" Multiplicity="0..1" />
+          <End Role="tb_Ingredient" Type="Self.tb_Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tb_Ingredient">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tb_OverTime_tb_Employee">
           <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="0..1" />
           <End Role="tb_OverTime" Type="Self.tb_OverTime" Multiplicity="*" />
@@ -277,13 +299,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PBL3ModelStoreContainer">
+        <EntityContainer Name="pbl3ModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Customer" EntityType="Self.tb_Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_DiningTable" EntityType="Self.tb_DiningTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Employee" EntityType="Self.tb_Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_EmpType" EntityType="Self.tb_EmpType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Ingredient" EntityType="Self.tb_Ingredient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Invoice" EntityType="Self.tb_Invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Invoice_Detail" EntityType="Self.tb_Invoice_Detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_OverTime" EntityType="Self.tb_OverTime" Schema="dbo" store:Type="Tables" />
@@ -326,6 +349,10 @@
             <End Role="tb_Employee" EntitySet="tb_Employee" />
             <End Role="tb_EmpType" EntitySet="tb_EmpType" />
           </AssociationSet>
+          <AssociationSet Name="FK_tb_Ingredient_tb_Product" Association="Self.FK_tb_Ingredient_tb_Product">
+            <End Role="tb_Product" EntitySet="tb_Product" />
+            <End Role="tb_Ingredient" EntitySet="tb_Ingredient" />
+          </AssociationSet>
           <AssociationSet Name="FK_tb_OverTime_tb_Employee" Association="Self.FK_tb_OverTime_tb_Employee">
             <End Role="tb_Employee" EntitySet="tb_Employee" />
             <End Role="tb_OverTime" EntitySet="tb_OverTime" />
@@ -343,7 +370,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PBL3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="pbl3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -414,6 +441,17 @@
           <Property Name="EmpTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_Employee" Relationship="Self.FK_tb_EmpType_tb_Employee" FromRole="tb_EmpType" ToRole="tb_Employee" />
         </EntityType>
+        <EntityType Name="tb_Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientID" />
+          </Key>
+          <Property Name="IngredientID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IngredientName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tb_Product" Relationship="Self.FK_tb_Ingredient_tb_Product" FromRole="tb_Ingredient" ToRole="tb_Product" />
+        </EntityType>
         <EntityType Name="tb_Invoice">
           <Key>
             <PropertyRef Name="InvoiceID" />
@@ -480,6 +518,7 @@
           <Property Name="CategoryID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="ImageProduct" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="tb_Category" Relationship="Self.FK_Product_Category" FromRole="tb_Product" ToRole="tb_Category" />
+          <NavigationProperty Name="tb_Ingredient" Relationship="Self.FK_tb_Ingredient_tb_Product" FromRole="tb_Product" ToRole="tb_Ingredient" />
           <NavigationProperty Name="tb_Invoice_Detail" Relationship="Self.FK_Invoice_Detail_Product" FromRole="tb_Product" ToRole="tb_Invoice_Detail" />
           <NavigationProperty Name="tb_Rating" Relationship="Self.FK_tb_Rating_tb_Product" FromRole="tb_Product" ToRole="tb_Rating" />
         </EntityType>
@@ -592,6 +631,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tb_Ingredient_tb_Product">
+          <End Role="tb_Product" Type="Self.tb_Product" Multiplicity="0..1" />
+          <End Role="tb_Ingredient" Type="Self.tb_Ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="tb_Ingredient">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Invoice_Detail_Invoice">
           <End Role="tb_Invoice" Type="Self.tb_Invoice" Multiplicity="1" />
           <End Role="tb_Invoice_Detail" Type="Self.tb_Invoice_Detail" Multiplicity="*" />
@@ -647,6 +698,7 @@
           <EntitySet Name="tb_DiningTable" EntityType="Self.tb_DiningTable" />
           <EntitySet Name="tb_Employee" EntityType="Self.tb_Employee" />
           <EntitySet Name="tb_EmpType" EntityType="Self.tb_EmpType" />
+          <EntitySet Name="tb_Ingredient" EntityType="Self.tb_Ingredient" />
           <EntitySet Name="tb_Invoice" EntityType="Self.tb_Invoice" />
           <EntitySet Name="tb_Invoice_Detail" EntityType="Self.tb_Invoice_Detail" />
           <EntitySet Name="tb_OverTime" EntityType="Self.tb_OverTime" />
@@ -685,6 +737,10 @@
             <End Role="tb_Employee" EntitySet="tb_Employee" />
             <End Role="tb_OverTime" EntitySet="tb_OverTime" />
           </AssociationSet>
+          <AssociationSet Name="FK_tb_Ingredient_tb_Product" Association="Self.FK_tb_Ingredient_tb_Product">
+            <End Role="tb_Product" EntitySet="tb_Product" />
+            <End Role="tb_Ingredient" EntitySet="tb_Ingredient" />
+          </AssociationSet>
           <AssociationSet Name="FK_Invoice_Detail_Invoice" Association="Self.FK_Invoice_Detail_Invoice">
             <End Role="tb_Invoice" EntitySet="tb_Invoice" />
             <End Role="tb_Invoice_Detail" EntitySet="tb_Invoice_Detail" />
@@ -707,9 +763,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3Entities">
+        <EntityContainerMapping StorageEntityContainer="pbl3ModelStoreContainer" CdmEntityContainer="PBL3Entities">
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PBL3Model.sysdiagram">
+            <EntityTypeMapping TypeName="pbl3Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -720,7 +776,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Category">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Category">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Category">
               <MappingFragment StoreEntitySet="tb_Category">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -729,7 +785,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Customer">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Customer">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Customer">
               <MappingFragment StoreEntitySet="tb_Customer">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -743,7 +799,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_DiningTable">
-            <EntityTypeMapping TypeName="PBL3Model.tb_DiningTable">
+            <EntityTypeMapping TypeName="pbl3Model.tb_DiningTable">
               <MappingFragment StoreEntitySet="tb_DiningTable">
                 <ScalarProperty Name="TableID" ColumnName="TableID" />
                 <ScalarProperty Name="Place" ColumnName="Place" />
@@ -753,7 +809,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Employee">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Employee">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Employee">
               <MappingFragment StoreEntitySet="tb_Employee">
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -768,15 +824,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_EmpType">
-            <EntityTypeMapping TypeName="PBL3Model.tb_EmpType">
+            <EntityTypeMapping TypeName="pbl3Model.tb_EmpType">
               <MappingFragment StoreEntitySet="tb_EmpType">
                 <ScalarProperty Name="EmpTypeID" ColumnName="EmpTypeID" />
                 <ScalarProperty Name="EmpTypeName" ColumnName="EmpTypeName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tb_Ingredient">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Ingredient">
+              <MappingFragment StoreEntitySet="tb_Ingredient">
+                <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+                <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tb_Invoice">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Invoice">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Invoice">
               <MappingFragment StoreEntitySet="tb_Invoice">
                 <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -790,7 +857,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Invoice_Detail">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Invoice_Detail">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Invoice_Detail">
               <MappingFragment StoreEntitySet="tb_Invoice_Detail">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
@@ -802,7 +869,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_OverTime">
-            <EntityTypeMapping TypeName="PBL3Model.tb_OverTime">
+            <EntityTypeMapping TypeName="pbl3Model.tb_OverTime">
               <MappingFragment StoreEntitySet="tb_OverTime">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OvertimeDate" ColumnName="OvertimeDate" />
@@ -813,7 +880,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Payment">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Payment">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Payment">
               <MappingFragment StoreEntitySet="tb_Payment">
                 <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
                 <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
@@ -823,7 +890,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Product">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Product">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Product">
               <MappingFragment StoreEntitySet="tb_Product">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -837,7 +904,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Rating">
-            <EntityTypeMapping TypeName="PBL3Model.tb_Rating">
+            <EntityTypeMapping TypeName="pbl3Model.tb_Rating">
               <MappingFragment StoreEntitySet="tb_Rating">
                 <ScalarProperty Name="reviewID" ColumnName="reviewID" />
                 <ScalarProperty Name="contentDetail" ColumnName="contentDetail" />

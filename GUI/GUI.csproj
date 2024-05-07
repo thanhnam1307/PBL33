@@ -61,6 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Customer\ChinhSuaKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Customer\ChinhSuaKH.Designer.cs">
+      <DependentUpon>ChinhSuaKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Customer\ThemMoiKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Customer\ThemMoiKH.Designer.cs">
+      <DependentUpon>ThemMoiKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,22 +85,22 @@
     <Compile Include="Admin\MainViewAdmin.Designer.cs">
       <DependentUpon>MainViewAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainViewCustomer.cs">
+    <Compile Include="USER\MainViewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainViewCustomer.Designer.cs">
+    <Compile Include="USER\MainViewCustomer.Designer.cs">
       <DependentUpon>MainViewCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainViewEmployee.cs">
+    <Compile Include="EMPLOYEE\MainViewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainViewEmployee.Designer.cs">
+    <Compile Include="EMPLOYEE\MainViewEmployee.Designer.cs">
       <DependentUpon>MainViewEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ManageCustomer.cs">
+    <Compile Include="Admin\Customer\ManageCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\ManageCustomer.Designer.cs">
+    <Compile Include="Admin\Customer\ManageCustomer.Designer.cs">
       <DependentUpon>ManageCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageEmployee.cs">
@@ -103,16 +115,16 @@
     <Compile Include="Admin\ManageIngredient.Designer.cs">
       <DependentUpon>ManageIngredient.cs</DependentUpon>
     </Compile>
-    <Compile Include="THUCDON\ChinhSua.cs">
+    <Compile Include="Admin\THUCDON\ChinhSua.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="THUCDON\ChinhSua.Designer.cs">
+    <Compile Include="Admin\THUCDON\ChinhSua.Designer.cs">
       <DependentUpon>ChinhSua.cs</DependentUpon>
     </Compile>
-    <Compile Include="THUCDON\ManageMenu.cs">
+    <Compile Include="Admin\THUCDON\ManageMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="THUCDON\ManageMenu.Designer.cs">
+    <Compile Include="Admin\THUCDON\ManageMenu.Designer.cs">
       <DependentUpon>ManageMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageStatistic.cs">
@@ -130,22 +142,28 @@
     <Compile Include="RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="THUCDON\ThemMoi.cs">
+    <Compile Include="Admin\THUCDON\ThemMoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="THUCDON\ThemMoi.Designer.cs">
+    <Compile Include="Admin\THUCDON\ThemMoi.Designer.cs">
       <DependentUpon>ThemMoi.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\Customer\ChinhSuaKH.resx">
+      <DependentUpon>ChinhSuaKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Customer\ThemMoiKH.resx">
+      <DependentUpon>ThemMoiKH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\MainViewAdmin.resx">
       <DependentUpon>MainViewAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainViewEmployee.resx">
+    <EmbeddedResource Include="EMPLOYEE\MainViewEmployee.resx">
       <DependentUpon>MainViewEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\ManageCustomer.resx">
+    <EmbeddedResource Include="Admin\Customer\ManageCustomer.resx">
       <DependentUpon>ManageCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageEmployee.resx">
@@ -154,10 +172,10 @@
     <EmbeddedResource Include="Admin\ManageIngredient.resx">
       <DependentUpon>ManageIngredient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="THUCDON\ChinhSua.resx">
+    <EmbeddedResource Include="Admin\THUCDON\ChinhSua.resx">
       <DependentUpon>ChinhSua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="THUCDON\ManageMenu.resx">
+    <EmbeddedResource Include="Admin\THUCDON\ManageMenu.resx">
       <DependentUpon>ManageMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageStatistic.resx">
@@ -176,7 +194,7 @@
     <EmbeddedResource Include="RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="THUCDON\ThemMoi.resx">
+    <EmbeddedResource Include="Admin\THUCDON\ThemMoi.resx">
       <DependentUpon>ThemMoi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -206,5 +224,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-menu-50.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

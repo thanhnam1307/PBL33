@@ -90,5 +90,10 @@ namespace GUI.THUCDON
         {
 
         }
+
+        private void cbbTheLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
