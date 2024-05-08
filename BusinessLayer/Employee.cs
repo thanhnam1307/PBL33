@@ -18,14 +18,14 @@ namespace BusinessLayer
             if (employee != null)
             {
                 Console.WriteLine("User is an employee");
-                return 1;
+                return 2 ;
             }
 
             var customer = db.tb_Customer.FirstOrDefault(c => c.CustomerID.Trim() == username && c.Password.Trim() == password);
             if (customer != null)
             {
                 Console.WriteLine("User is a customer");
-                return 2;
+                return 1;
             }
 
             // Kiểm tra nếu là quản trị viên

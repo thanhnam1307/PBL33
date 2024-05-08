@@ -85,6 +85,12 @@
     <Compile Include="Admin\MainViewAdmin.Designer.cs">
       <DependentUpon>MainViewAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="USER\EditInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USER\EditInformation.Designer.cs">
+      <DependentUpon>EditInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="USER\MainViewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>

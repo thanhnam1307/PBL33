@@ -30,17 +30,17 @@ namespace GUI
                         //Account customer = new Account();
                         //if (customer.CheckLogin(user, pass))
                         //{
-                    MainViewEmployee mainViewCustomer = new MainViewEmployee();
+                    MainViewCustomer mainViewCustomer = new MainViewCustomer(user,pass);
                     Hide();
                     MessageBox.Show("Đăng nhập thành công", "Thành công");
                     mainViewCustomer.Show();
                     //}
-                    break;
+                    break; 
                 case 2: // Nhân viên
                         //Employee employee = new Employee();
                         //if (employee.CheckLogin(user, pass))
                         //{
-                    MainViewCustomer mainViewEmployee = new MainViewCustomer();
+                    MainViewEmployee mainViewEmployee = new MainViewEmployee();
                     Hide();
                     MessageBox.Show("Đăng nhập thành công", "Thành công");
                     mainViewEmployee.Show();

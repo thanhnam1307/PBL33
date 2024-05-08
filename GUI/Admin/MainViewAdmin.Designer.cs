@@ -109,7 +109,7 @@
             this.btnTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.btnTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTaiKhoan.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaiKhoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnTaiKhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnTaiKhoan.Image")));
             this.btnTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -169,7 +169,7 @@
             this.btnThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pnThongKe.SetFlowBreak(this.btnThongKe, true);
-            this.btnThongKe.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongKe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
             this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,7 +186,7 @@
             this.pnThucDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.pnThucDon.Controls.Add(this.btnThucDon);
             this.pnThucDon.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnThucDon.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnThucDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnThucDon.Location = new System.Drawing.Point(3, 142);
             this.pnThucDon.Name = "pnThucDon";
             this.pnThucDon.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
@@ -230,7 +230,7 @@
             this.btnNguyenLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.btnNguyenLieu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNguyenLieu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNguyenLieu.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNguyenLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNguyenLieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNguyenLieu.Image = ((System.Drawing.Image)(resources.GetObject("btnNguyenLieu.Image")));
             this.btnNguyenLieu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,7 +258,7 @@
             this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.btnDangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDangXuat.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
             this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
