@@ -19,11 +19,15 @@ namespace GUI
     public partial class ManageCustomer : Form
     {
         public Account _customer;
+        public Invoice _invoice;
+        public Product _product;
         public ManageCustomer()
         {
             InitializeComponent();
             _customer = new Account();
-
+            _invoice = new Invoice();
+            _product = new Product();
+            setCBB();
             LoadData();
         }
         public List<object> GetCustomerInfoList()
@@ -176,6 +180,133 @@ namespace GUI
             {
                 MessageBox.Show("Đã xảy ra lỗi trong quá trình cập nhật khách hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+       
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                string maKH = selectedRow.Cells["Mãkháchhàng"].Value.ToString();
+                string namekh = selectedRow.Cells["Tênkháchhàng"].Value.ToString();
+                string sdt = selectedRow.Cells["Sốđiệnthoại"].Value.ToString();
+                DateTime birth = Convert.ToDateTime(selectedRow.Cells["Ngàysinh"].Value);
+                bool gioitinh = (selectedRow.Cells["Giớitính"].Value.ToString() == "Nam") ? true : false;
+
+                string diachi = selectedRow.Cells["Địachỉ"].Value.ToString();
+                int diemthuong = Convert.ToInt32(selectedRow.Cells["Điểmthưởng"].Value.ToString());
+                string matkhau = selectedRow.Cells["Mậtkhẩu"].Value.ToString();
+
+
+
+
+                HistoryInvoice chinhSuaForm = new HistoryInvoice(maKH, namekh);
+                chinhSuaForm.Show();
+            }
+        }
+
+        private void rdAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdAll.Checked)
+            {
+                LoadData();
+            }
+        }
+        public List<object> GetCustomerInfoListNam(bool genderr)
+        {
+            List<tb_Customer> customerList = _customer.GetAccountsFromTable("tb_Customer");
+
+            List<object> selectedCustomerInfoList = new List<object>();
+
+            foreach (var customer in customerList)
+            {
+                if (customer.Gender == genderr)
+                {
+                    string gender = customer.Gender == true ? "Nữ" : "Nam";
+                var customerInfo = new
+                {
+                    Mãkháchhàng = customer.CustomerID,
+                    Tênkháchhàng = customer.Name,
+                    Sốđiệnthoại = customer.PhoneNumber,
+                    Giớitính = gender,
+                    Ngàysinh = customer.Birthdate,
+                    Địachỉ = customer.Address,
+                    Điểmthưởng = customer.RewardPoints,
+                    Mậtkhẩu = customer.Password
+                };
+               
+
+                
+                selectedCustomerInfoList.Add(customerInfo);
+                }
+            }
+
+            return selectedCustomerInfoList;
+        }
+        public void switchGender()
+        {
+             
+        }
+        private void rdFilter_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
+        public void setCBB()
+        {
+            cbbGender.Items.Add("Nam");
+            cbbGender.Items.Add("Nữ");
+            cbbGender.SelectedIndex = 0;
+        }
+        private void cbbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rdFilter.Checked && cbbGender.SelectedValue == null)
+            {
+                if (rdFilter.Checked)
+                {
+                   
+                    if (cbbGender.SelectedIndex == 0)
+                    {
+                        dataGridView1.DataSource = GetCustomerInfoListNam(false);
+                    }
+
+                    // Gọi hàm GetCustomerInfoListByGender với giới tính được xác định từ ComboBox
+
+                    else if(cbbGender.SelectedIndex == 1) 
+                    {
+                        dataGridView1.DataSource = GetCustomerInfoListNam(true);
+
+                    }
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim(); // Lấy từ khóa tìm kiếm từ TextBox
+
+            List<tb_Customer> customerList = _customer.GetAccountsFromTable("tb_Customer");
+
+            var filteredCustomers = customerList.Where(c =>
+                c.CustomerID.ToString().Contains(searchKeyword) ||
+                c.Name.Contains(searchKeyword) ||
+                c.PhoneNumber.Contains(searchKeyword) ||
+                c.Birthdate.ToString().Contains(searchKeyword) ||
+                c.Address.Contains(searchKeyword) ||
+                c.RewardPoints.ToString().Contains(searchKeyword) 
+            ).ToList();
+
+            var selectedCustomerInfoList = filteredCustomers.Select(c => new {
+                Mãkháchhàng = c.CustomerID,
+                Tênkháchhàng = c.Name,
+                Sốđiệnthoại = c.PhoneNumber,
+                Giớitính = c.Gender==false ? "Nam" : "Nữ",
+                Ngàysinh = c.Birthdate,
+                Địachỉ = c.Address,
+                Điểmthưởng = c.RewardPoints,
+            }).ToList();
+
+            dataGridView1.DataSource = selectedCustomerInfoList;
 
         }
     }

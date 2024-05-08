@@ -21,7 +21,6 @@ namespace DataLayer
         }
     
         public string PaymentID { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
         public string PaymentMethod { get; set; }
         public string CustomerID { get; set; }
     

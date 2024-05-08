@@ -61,16 +61,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Customer\ChinhSuaKH.cs">
+    <Compile Include="Admin\KhachHang\ChinhSuaKH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Customer\ChinhSuaKH.Designer.cs">
+    <Compile Include="Admin\KhachHang\ChinhSuaKH.Designer.cs">
       <DependentUpon>ChinhSuaKH.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customer\ThemMoiKH.cs">
+    <Compile Include="Admin\KhachHang\HistoryInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Customer\ThemMoiKH.Designer.cs">
+    <Compile Include="Admin\KhachHang\HistoryInvoice.Designer.cs">
+      <DependentUpon>HistoryInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\KhachHang\InvoiceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\KhachHang\InvoiceDetail.Designer.cs">
+      <DependentUpon>InvoiceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\KhachHang\ThemMoiKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\KhachHang\ThemMoiKH.Designer.cs">
       <DependentUpon>ThemMoiKH.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -103,16 +115,16 @@
     <Compile Include="EMPLOYEE\MainViewEmployee.Designer.cs">
       <DependentUpon>MainViewEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Customer\ManageCustomer.cs">
+    <Compile Include="Admin\KhachHang\ManageCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Customer\ManageCustomer.Designer.cs">
+    <Compile Include="Admin\KhachHang\ManageCustomer.Designer.cs">
       <DependentUpon>ManageCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ManageEmployee.cs">
+    <Compile Include="Admin\Nhanvien\ManageEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\ManageEmployee.Designer.cs">
+    <Compile Include="Admin\Nhanvien\ManageEmployee.Designer.cs">
       <DependentUpon>ManageEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageIngredient.cs">
@@ -154,10 +166,16 @@
     <Compile Include="Admin\THUCDON\ThemMoi.Designer.cs">
       <DependentUpon>ThemMoi.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Admin\Customer\ChinhSuaKH.resx">
+    <EmbeddedResource Include="Admin\KhachHang\ChinhSuaKH.resx">
       <DependentUpon>ChinhSuaKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Customer\ThemMoiKH.resx">
+    <EmbeddedResource Include="Admin\KhachHang\HistoryInvoice.resx">
+      <DependentUpon>HistoryInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\KhachHang\InvoiceDetail.resx">
+      <DependentUpon>InvoiceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\KhachHang\ThemMoiKH.resx">
       <DependentUpon>ThemMoiKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -169,10 +187,10 @@
     <EmbeddedResource Include="EMPLOYEE\MainViewEmployee.resx">
       <DependentUpon>MainViewEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Customer\ManageCustomer.resx">
+    <EmbeddedResource Include="Admin\KhachHang\ManageCustomer.resx">
       <DependentUpon>ManageCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\ManageEmployee.resx">
+    <EmbeddedResource Include="Admin\Nhanvien\ManageEmployee.resx">
       <DependentUpon>ManageEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageIngredient.resx">
