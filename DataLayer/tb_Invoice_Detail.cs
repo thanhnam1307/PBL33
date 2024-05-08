@@ -17,7 +17,6 @@ namespace DataLayer
         public string ID { get; set; }
         public string InvoiceID { get; set; }
         public string ProductID { get; set; }
-        public Nullable<decimal> Price { get; set; }
         public Nullable<int> Quanlity { get; set; }
         public Nullable<decimal> Discount { get; set; }
     

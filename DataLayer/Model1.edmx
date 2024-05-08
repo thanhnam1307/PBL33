@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="pbl3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PBL3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -96,7 +96,6 @@
           <Property Name="ID" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="InvoiceID" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="ProductID" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Price" Type="money" />
           <Property Name="Quanlity" Type="int" />
           <Property Name="Discount" Type="money" />
         </EntityType>
@@ -115,7 +114,6 @@
             <PropertyRef Name="PaymentID" />
           </Key>
           <Property Name="PaymentID" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="PaymentDate" Type="date" />
           <Property Name="PaymentMethod" Type="nvarchar" MaxLength="40" />
           <Property Name="CustomerID" Type="nchar" MaxLength="10" />
         </EntityType>
@@ -299,7 +297,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="pbl3ModelStoreContainer">
+        <EntityContainer Name="PBL3ModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Customer" EntityType="Self.tb_Customer" Schema="dbo" store:Type="Tables" />
@@ -370,7 +368,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="pbl3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PBL3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -477,7 +475,6 @@
           <Property Name="ID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="InvoiceID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ProductID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Quanlity" Type="Int32" />
           <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="tb_Invoice" Relationship="Self.FK_Invoice_Detail_Invoice" FromRole="tb_Invoice_Detail" ToRole="tb_Invoice" />
@@ -499,7 +496,6 @@
             <PropertyRef Name="PaymentID" />
           </Key>
           <Property Name="PaymentID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="PaymentDate" Type="DateTime" Precision="0" />
           <Property Name="PaymentMethod" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="CustomerID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="tb_Customer" Relationship="Self.FK_Payment_Customer" FromRole="tb_Payment" ToRole="tb_Customer" />
@@ -763,9 +759,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="pbl3ModelStoreContainer" CdmEntityContainer="PBL3Entities">
+        <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="PBL3Entities">
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="pbl3Model.sysdiagram">
+            <EntityTypeMapping TypeName="PBL3Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -776,7 +772,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Category">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Category">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Category">
               <MappingFragment StoreEntitySet="tb_Category">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -785,7 +781,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Customer">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Customer">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Customer">
               <MappingFragment StoreEntitySet="tb_Customer">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -799,7 +795,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_DiningTable">
-            <EntityTypeMapping TypeName="pbl3Model.tb_DiningTable">
+            <EntityTypeMapping TypeName="PBL3Model.tb_DiningTable">
               <MappingFragment StoreEntitySet="tb_DiningTable">
                 <ScalarProperty Name="TableID" ColumnName="TableID" />
                 <ScalarProperty Name="Place" ColumnName="Place" />
@@ -809,7 +805,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Employee">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Employee">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Employee">
               <MappingFragment StoreEntitySet="tb_Employee">
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -824,7 +820,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_EmpType">
-            <EntityTypeMapping TypeName="pbl3Model.tb_EmpType">
+            <EntityTypeMapping TypeName="PBL3Model.tb_EmpType">
               <MappingFragment StoreEntitySet="tb_EmpType">
                 <ScalarProperty Name="EmpTypeID" ColumnName="EmpTypeID" />
                 <ScalarProperty Name="EmpTypeName" ColumnName="EmpTypeName" />
@@ -832,7 +828,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Ingredient">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Ingredient">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Ingredient">
               <MappingFragment StoreEntitySet="tb_Ingredient">
                 <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
                 <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
@@ -843,7 +839,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Invoice">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Invoice">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Invoice">
               <MappingFragment StoreEntitySet="tb_Invoice">
                 <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -857,19 +853,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Invoice_Detail">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Invoice_Detail">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Invoice_Detail">
               <MappingFragment StoreEntitySet="tb_Invoice_Detail">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Quanlity" ColumnName="Quanlity" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_OverTime">
-            <EntityTypeMapping TypeName="pbl3Model.tb_OverTime">
+            <EntityTypeMapping TypeName="PBL3Model.tb_OverTime">
               <MappingFragment StoreEntitySet="tb_OverTime">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OvertimeDate" ColumnName="OvertimeDate" />
@@ -880,17 +875,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Payment">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Payment">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Payment">
               <MappingFragment StoreEntitySet="tb_Payment">
                 <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
-                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
                 <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Product">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Product">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Product">
               <MappingFragment StoreEntitySet="tb_Product">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -904,7 +898,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Rating">
-            <EntityTypeMapping TypeName="pbl3Model.tb_Rating">
+            <EntityTypeMapping TypeName="PBL3Model.tb_Rating">
               <MappingFragment StoreEntitySet="tb_Rating">
                 <ScalarProperty Name="reviewID" ColumnName="reviewID" />
                 <ScalarProperty Name="contentDetail" ColumnName="contentDetail" />
